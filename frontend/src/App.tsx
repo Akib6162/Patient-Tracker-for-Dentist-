@@ -55,8 +55,9 @@ export default function App() {
         return;
       }
 
+      const apiBase = import.meta.env.VITE_API_URL || "http://localhost:3000";
       eventSource = new EventSource(
-        `http://localhost:3000/api/events?token=${encodeURIComponent(token)}`
+        `${apiBase}/api/events?token=${encodeURIComponent(token)}`
       );
 
       eventSource.onmessage = (event) => {
