@@ -1,0 +1,61 @@
+================================================================================
+PATIENT TRACKER SYSTEM - PROJECT OVERVIEW
+================================================================================
+
+1. PROJECT SUMMARY
+--------------------------------------------------------------------------------
+Patient Tracker is a full-stack clinical management system designed for medical 
+clinics and practices. It streamlines patient intake, workflow status tracking 
+(pending, approved, treated), treatment notes, and billing management with 
+role-based access control for Doctors and Medical Assistants.
+
+
+2. ARCHITECTURE & TECH STACK
+--------------------------------------------------------------------------------
+• Backend API:
+  - Runtime: Node.js with TypeScript
+  - Framework: Fastify (high-performance web framework)
+  - Database: PostgreSQL
+  - ORM / Query Builder: Drizzle ORM & Drizzle Kit
+  - Authentication & Security: JWT (JSON Web Tokens), bcryptjs password hashing
+  - CORS & Middleware: @fastify/cors, custom JWT verification & role authorization
+
+• Frontends (Two Dedicated Client Apps):
+  - Assistant Web Client: Vite + React 19 + TypeScript
+  - Doctor Web Client: Vite + React 19 + TypeScript
+  - Styling & UI: Tailwind CSS, Radix UI primitives, Lucide React icons
+  - State & Data Fetching: TanStack React Query (v5), Axios
+  - Notifications & UX: Sonner toast notifications, Next Themes (dark/light mode)
+
+
+3. CORE FUNCTIONALITIES & MODULES
+--------------------------------------------------------------------------------
+[A] Role-Based Access Control (RBAC):
+  - Doctor Role:
+    * Dashboard with clinic analytics and patient status queues
+    * Approve pending patients for treatment
+    * View medical records, log/complete treatment notes
+    * Manage and verify patient billing
+  - Assistant Role:
+    * Register and intake new patients
+    * View and search patient records
+    * Record patient payments and track billing/dues
+
+[B] Patient Management:
+  - Patient registration (Name, Age, Phone, Address)
+  - Patient lifecycle progression: "Pending" -> "Approved" -> "Treated"
+  - Patient search, status filtering, and detailed profile views
+
+[C] Treatment Tracking:
+  - Record clinical notes and treatment details per patient
+  - Mark treatments as completed with timestamp and doctor attribution
+
+[D] Billing & Payment Management:
+  - Automatic balance calculation (Total Bill vs. Amount Paid)
+  - Payment status tracking: "Processing", "Due", and "Clear"
+  - Real-time updates when payments are recorded
+
+[E] System Health & Database:
+  - API health check endpoints (/health)
+  - Automated migration and schema synchronization via Drizzle Kit
+================================================================================
